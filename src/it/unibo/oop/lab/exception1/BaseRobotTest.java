@@ -2,6 +2,7 @@ package it.unibo.oop.lab.exception1;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
@@ -80,21 +81,17 @@ public final class BaseRobotTest {
          * Repeatedly move the robot up and down until the battery is completely
          * exhausted.
          */
-        while (r2.getBatteryLevel() > 0) {
-            r2.moveUp();
+        try {
+        	while (r2.getBatteryLevel() > 0) {
+                r2.moveUp();
+                r2.moveDown();
+            }
             r2.moveDown();
+        } catch(PositionOutOfBoundException e) {
+        	fail("I expected battery to fail!");
+        } catch(NotEnoughBatteryException e) {
+        	assertTrue(e.getMessage().contains("Battery level is " + r2.getBatteryLevel()));
         }
-        // verify battery level:
-        // expected, actual, delta (accepted error as we deal with decimal
-        // values: in this case we accept NO ERROR, which is generally bad)
-        assertEquals(0d, r2.getBatteryLevel(), 0);
-        // verify position: same as start position
-        assertEquals("[CHECKING ROBOT INIT POS Y]", 0, r2.getEnvironment().getCurrPosY());
-        // out of world: returns false
-        assertFalse("[CHECKING MOVING UP]", r2.moveUp());
-        // recharge battery
-        r2.recharge();
-        // verify battery level
-        assertEquals(100, r2.getBatteryLevel(), 0);
+
     }
 }
