@@ -85,6 +85,7 @@ public final class UseCollection {
         	lList.add(0, i);
         }        
         timeLinkedList = System.nanoTime() - timeLinkedList;
+        
         System.out.println("Adding " + ELEMS_TO_ADD + " elements as first element of the collection:\n " 
                 + "\tArrayList=" + timeArrayList + "ns (" + timeArrayList / TO_MS + "ms)\n"
                 + "\tLinkedList=" + timeLinkedList + "ns (" + timeLinkedList / TO_MS + "ms)" );
