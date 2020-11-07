@@ -26,7 +26,7 @@ public class NotEnoughBatteryException extends IllegalStateException{
 	 */
 	public String toString() {
 		return "Not enough battery for moving. Battery level is " + batteryLevel + 
-				", battery required is " + batteryRequire + "]";
+				", battery required is " + batteryRequire;
 	}
 	
 	/**
