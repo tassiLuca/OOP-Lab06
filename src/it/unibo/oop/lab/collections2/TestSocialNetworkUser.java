@@ -28,25 +28,11 @@ public final class TestSocialNetworkUser {
      *            ignored
      */
     public static void main(final String... args) {
-        /*
-         * TODO create 5 social network users (SocialNetworkUser)
-         * 
-         * Kevin Bacon,kbacon, 56
-         * 
-         * Denzel Washington, dwashington, 59
-         * 
-         * Malcom Gladwell, mgladwell, 51
-         * 
-         * Nicholas Taleb, ntaleb, 54
-         * 
-         * And one regular UserImpl (User)
-         * 
-         * * Adam Smith, asmith, (no age)
-         */
-        final SocialNetworkUser<User> kbacon = null;
-        final SocialNetworkUser<User> dwashington = null;
-        final SocialNetworkUser<User> mgladwell = null;
-        final SocialNetworkUser<User> ntaleb = null;
+
+    	final SocialNetworkUser<User> kbacon = new SocialNetworkUserImpl<>("Kevin", "Bacon", "kbacon", 56);
+        final SocialNetworkUser<User> dwashington = new SocialNetworkUserImpl<>("Denzel", "Washington", "dwashington", 59);
+        final SocialNetworkUser<User> mgladwell = new SocialNetworkUserImpl<>("Malcom", "Gladwell", "mgladwell", 51);
+        final SocialNetworkUser<User> ntaleb = new SocialNetworkUserImpl<>("Nicholas", "Taleb", "ntaleb", 546);
         final User asmith = new UserImpl("Adam", "Smith", "asmith");
         /*
          * Make people follow each other
